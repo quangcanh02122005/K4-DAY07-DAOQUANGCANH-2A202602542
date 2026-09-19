@@ -18,5 +18,9 @@ __pycache__/
 .venv/
 src_w_solution/
 
+# Local crawl archives; the graded corpus is data/thu-vien/ only.
+data/thuvien/
+data/thu-vien-extra/
+
 # Instructor-only notes (chứa gợi ý/đáp án chấm bài, không public cho học viên)
 docs/INSTRUCTOR_GUIDE.md

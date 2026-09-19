@@ -1,0 +1,67 @@
+﻿=== BASELINE CHUNKING (front matter excluded) ===
+haui-library-policy.md                 fixed_size     count= 15 avg_length=494.1
+haui-library-policy.md                 by_sentences   count= 29 avg_length=253.0
+haui-library-policy.md                 recursive      count= 19 avg_length=387.5
+huit-library-usage-policy.md           fixed_size     count= 26 avg_length=492.0
+huit-library-usage-policy.md           by_sentences   count= 37 avg_length=343.9
+huit-library-usage-policy.md           recursive      count= 32 avg_length=397.5
+thu-tuc-thanh-toan-ra-truong.md        fixed_size     count=  4 avg_length=499.5
+thu-tuc-thanh-toan-ra-truong.md        by_sentences   count=  3 avg_length=663.7
+thu-tuc-thanh-toan-ra-truong.md        recursive      count=  5 avg_length=398.0
+
+Loaded 87 chunks from 10 documents
+
+=== BENCHMARK: strategy=recursive, top_k=3 ===
+
+Q1: Theo HUST, đến nhận phòng học nhóm muộn quá bao lâu thì lịch đặt phòng bị hủy?
+FILTER: None
+GOLD: Nếu đến muộn quá 15 phút, thư viện có quyền hủy lịch và cấp phòng cho nhóm khác.
+  1. score=0.3003 doc_id=huit-library-usage-policy answer=NO | d. Tiền thế chân được thu ngay khi đăng ký làm thẻ tại thư viện. Việc thu tiền thế chân chỉ áp dụng đối với học sinh, sinh viên, học viên và các tổ chức, cá nhân ngoài trường. Khôn
+  2. score=0.2570 doc_id=huit-library-usage-policy answer=NO | i. Có ý thức bảo vệ tài sản của Thư viện (không viết, vẽ lên bàn ghế, thiết bị; không ghi chú lên tài liệu, không sao chép tài liệu khi chưa được sự đồng ý của cán bộ thư viện,..);
+  3. score=0.2245 doc_id=huit-library-usage-policy answer=NO | a. Đăng ký sử dụng không gian và tiện ích của Thư viện trực tiếp tại Quầy thông tin, hoặc đăng ký trực tuyến tại địa chỉ Thư viện Trường Đại Học Công Thương TP.HCM chọn mục “ĐẶT PH
+TOP3_CONTAINS_ANSWER: NO
+QUESTION_SCORE: 0/2
+
+Q2: Khi mượn tài liệu đọc tại chỗ ở HUST, mỗi lần được lấy tối đa bao nhiêu quyển và phải trả ở đâu, lúc nào?
+FILTER: None
+GOLD: Mỗi lần lấy tối đa 2 quyển; tài liệu phải được trả trước 17h30 tại phòng 411.
+  1. score=0.3069 doc_id=haui-library-policy answer=NO | 4. Bạn đọc không tráo đổi vị trí tài liệu trên giá, không lấy nhiều hơn 02 cuốn tài liệu hoặc hơn 01 loại báo, tạp chí cho một lần sử dụng. Khi sử dụng xong phải để lại vị trí cũ. 
+  2. score=0.2555 doc_id=huit-library-usage-policy answer=NO | a. Đăng ký sử dụng không gian và tiện ích của Thư viện trực tiếp tại Quầy thông tin, hoặc đăng ký trực tuyến tại địa chỉ Thư viện Trường Đại Học Công Thương TP.HCM chọn mục “ĐẶT PH
+  3. score=0.2522 doc_id=huit-library-usage-policy answer=NO | Không gia hạn Người sử dụng có thể gia hạn tài liệu tiếp tại Quầy thông tin hoặc qua website Thư viện Trường Đại Học Công Thương TP.HCM, chọn mục “Gia hạn tài liệu” b. Trả tài liệu
+TOP3_CONTAINS_ANSWER: NO
+QUESTION_SCORE: 0/2
+
+Q3: Ảnh làm thẻ thư viện cho cán bộ HUST phải đáp ứng yêu cầu gì?
+FILTER: {'audience': 'faculty'}
+GOLD: Ảnh tối thiểu 300 pixel, tỷ lệ 1x1, nền trắng và được gửi tới email tttts@hust.edu.vn.
+  1. score=0.1269 doc_id=quy-trinh-lam-the-can-bo answer=NO | # Quy trình làm thẻ thư viện cho cán bộ giảng viên Quy trình làm thẻ cán bộ 1. Đối tượng làm thẻ - Cán bộ mất thẻ, hỏng thẻ - Cán bộ mới về đại học (từ 1.1.2025). 2. Thủ tục và địa
+  2. score=0.0818 doc_id=quy-trinh-lam-the-can-bo answer=YES | Chuẩn bị ảnh thẻ: Chất lượng ảnh tối thiểu 300 Pixel, kích thước đồng đều nhau, tỉ lệ ảnh 1x1 (ảnh vuông); Nền ảnh màu trắng..), gửi file ảnh tới email tttts@hust.edu.vn Nhận thẻ: 
+  3. score=-0.1331 doc_id=quy-trinh-lam-the-can-bo answer=NO | Đơn vị phụ trách: Trung tâm Truyền thông và Tri thức số Chuyên viên phụ trách: Cô Hà Thị Huệ Email : tttts@hust.edu.vn Số điện thoại: 024.38692243
+TOP3_CONTAINS_ANSWER: YES
+QUESTION_SCORE: 1/2
+
+Q4: Theo HaUI, sinh viên được mượn tối đa bao nhiêu tài liệu và trong thời gian bao lâu?
+FILTER: None
+GOLD: Mỗi lần được mượn tối đa 5 tài liệu; tài liệu tham khảo tối đa 15 ngày và giáo trình tối đa một học kỳ.
+  1. score=0.2646 doc_id=ftu-library-rules answer=NO | Người học: Tối đa 02 tài liệu/lần trong thời hạn 02 tháng – gia hạn 01 lần trong 02 tháng. – Mượn tại Thư viện mini (Lib Cabinet – hoạt động 24/7): Bạn đọc: 02 tài liệu/lần trong 0
+  2. score=0.2487 doc_id=huit-library-usage-policy answer=NO | a. Trường hợp làm mất tài liệu sau thời hạn quy định phải trả Người sử dụng có trách nhiệm trả tài liệu đúng hạn. Trong trường hợp mất tài liệu, người sử dụng phải báo ngay cho thư
+  3. score=0.1860 doc_id=huit-library-usage-policy answer=NO | c. Đối với người sử dụng ngoài trường, Thẻ thư viện là thẻ do Thư viện cấp khi đăng ký làm thẻ và sử dụng thư viện. d. Người sử dụng có trách nhiệm tham gia lớp hướng dẫn sử dụng t
+TOP3_CONTAINS_ANSWER: NO
+QUESTION_SCORE: 0/2
+
+Q5: Tôi cần làm gì để hoàn tất thủ tục công nợ tại thư viện?
+FILTER: {'audience': 'student'}
+GOLD: Kiểm tra tài khoản hoặc email, trả sách và xử lý vi phạm, kiểm tra lại tài khoản rồi đề nghị cán bộ phòng mượn khóa tài khoản.
+  1. score=0.1931 doc_id=quy-dinh-lam-the-ban-doc answer=NO | Bước 4. Đọc kỹ hướng dẫn sử dụng thư viện. Khi check in nhớ xuất trình thêm Căn cước Công dân. -------------- Thông tin hỗ trợ: Email: tttts@hust.edu.vn ; tvtqb@hust.edu.vn Website
+  2. score=0.1745 doc_id=muon-tra-tai-lieu-inhouse answer=NO | Bước 1: Trả tài liệu trước 17h30, tại phòng 411 Bước 2: Kiểm tra lại tài khoản sau khi trả. Xử lý vi phạm: Tùy theo mức độ bạn đọc vi phạm có hình thức xử lý theo quy định của Thư 
+  3. score=0.1660 doc_id=dich-vu-su-dung-phong-hop-nhom answer=NO | # Dịch vụ sử dụng phòng họp nhóm Dịch vụ sử dụng phòng học nhóm
+TOP3_CONTAINS_ANSWER: NO
+QUESTION_SCORE: 0/2
+  A/B WITHOUT FILTER:
+    1. score=0.2679 doc_id=huit-library-usage-policy audience=all
+    2. score=0.2385 doc_id=huit-library-usage-policy audience=all
+    3. score=0.2127 doc_id=huit-library-usage-policy audience=all
+
+BENCHMARK_SCORE: 1/10
+
+NOTE: MockEmbedder is deterministic but has no semantic meaning; retrieval scores are illustrative only.

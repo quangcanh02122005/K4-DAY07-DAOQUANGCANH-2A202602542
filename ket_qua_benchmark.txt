@@ -1,0 +1,67 @@
+﻿=== BASELINE CHUNKING (front matter excluded) ===
+haui-library-policy.md                 fixed_size     count= 15 avg_length=494.1
+haui-library-policy.md                 by_sentences   count= 29 avg_length=253.0
+haui-library-policy.md                 recursive      count= 19 avg_length=387.5
+huit-library-usage-policy.md           fixed_size     count= 26 avg_length=492.0
+huit-library-usage-policy.md           by_sentences   count= 37 avg_length=343.9
+huit-library-usage-policy.md           recursive      count= 32 avg_length=397.5
+thu-tuc-thanh-toan-ra-truong.md        fixed_size     count=  4 avg_length=499.5
+thu-tuc-thanh-toan-ra-truong.md        by_sentences   count=  3 avg_length=663.7
+thu-tuc-thanh-toan-ra-truong.md        recursive      count=  5 avg_length=398.0
+
+Loaded 137 chunks from 10 documents
+
+=== BENCHMARK: strategy=heading, top_k=3 ===
+
+Q1: Theo HUST, đến nhận phòng học nhóm muộn quá bao lâu thì lịch đặt phòng bị hủy?
+FILTER: None
+GOLD: Nếu đến muộn quá 15 phút, thư viện có quyền hủy lịch và cấp phòng cho nhóm khác.
+  1. score=0.3280 doc_id=haui-library-policy answer=NO | 4. Người học trước khi ra trường hoặc thôi học, viên chức, người lao động trước khi nghỉ hoặc chuyển công tác có trách nhiệm hoàn trả hết tài liệu đã mượn, thanh toán các khoản bồi
+  2. score=0.2975 doc_id=muon-tra-tai-lieu-inhouse answer=NO | Bước 2: Kiểm tra lại tài khoản sau khi trả. Xử lý vi phạm: Tùy theo mức độ bạn đọc vi phạm có hình thức xử lý theo quy định của Thư viện. Rất mong bạn đọc tuân thủ đúng quy định kh
+  3. score=0.2772 doc_id=ftu-library-rules answer=NO | # Nội quy Thư viện Đại học Ngoại thương
+TOP3_CONTAINS_ANSWER: NO
+QUESTION_SCORE: 0/2
+
+Q2: Khi mượn tài liệu đọc tại chỗ ở HUST, mỗi lần được lấy tối đa bao nhiêu quyển và phải trả ở đâu, lúc nào?
+FILTER: None
+GOLD: Mỗi lần lấy tối đa 2 quyển; tài liệu phải được trả trước 17h30 tại phòng 411.
+  1. score=0.2843 doc_id=muon-tra-tai-lieu-inhouse answer=NO | Bước 5: Nhận tài liệu và di chuyển đến khu vực đọc theo nhu cầu. Quy trình trả:
+  2. score=0.2725 doc_id=huit-library-usage-policy answer=NO | 7. Quy định đền bù làm mất tài liệu mượn của Thư viện c. Chi phí xử lý tài liệu: Ngoài việc đền sách theo quy định, người sử dụng phải đóng phí xử lý kỹ thuật: nhãn, dấu, mã vạch t
+  3. score=0.2581 doc_id=ftu-library-rules answer=NO | 2. Thời gian phục vụ Ngày Giờ phục vụ Thứ Hai – Thứ Sáu 8h00 – 18h00 Phục vụ xuyên trưa Thứ Bảy 8h00 – 16h00 Áp dụng từ ngày 10/8/2026.
+TOP3_CONTAINS_ANSWER: NO
+QUESTION_SCORE: 0/2
+
+Q3: Ảnh làm thẻ thư viện cho cán bộ HUST phải đáp ứng yêu cầu gì?
+FILTER: {'audience': 'faculty'}
+GOLD: Ảnh tối thiểu 300 pixel, tỷ lệ 1x1, nền trắng và được gửi tới email tttts@hust.edu.vn.
+  1. score=0.0959 doc_id=quy-trinh-lam-the-can-bo answer=YES | 2. Thủ tục và địa điểm đăng ký Viết đơn (tải mẫu tại đây) có xác nhận của TCNS nộp trực tiếp tới Trung tâm TTTTS (Văn phòng : P320 Tòa nhà Thư viện Tạ Quang Bửu) Chuẩn bị ảnh t
+  2. score=0.0192 doc_id=quy-trinh-lam-the-can-bo answer=NO | # Quy trình làm thẻ thư viện cho cán bộ giảng viên Quy trình làm thẻ cán bộ
+  3. score=-0.0448 doc_id=quy-trinh-lam-the-can-bo answer=NO | 1. Đối tượng làm thẻ - Cán bộ mất thẻ, hỏng thẻ - Cán bộ mới về đại học (từ 1.1.2025).
+TOP3_CONTAINS_ANSWER: YES
+QUESTION_SCORE: 2/2
+
+Q4: Theo HaUI, sinh viên được mượn tối đa bao nhiêu tài liệu và trong thời gian bao lâu?
+FILTER: None
+GOLD: Mỗi lần được mượn tối đa 5 tài liệu; tài liệu tham khảo tối đa 15 ngày và giáo trình tối đa một học kỳ.
+  1. score=0.3262 doc_id=quy-dinh-lam-the-ban-doc answer=NO | Bước 3. Nhận thẻ điện tử qua email
+  2. score=0.2638 doc_id=huit-library-usage-policy answer=NO | 7. Quy định đền bù làm mất tài liệu mượn của Thư viện * Đối với tài liệu mua, tặng đã cũ không còn lưu hành trên thị trường. - Tài liệu có giá trên bìa: người sử dụng phải đền tiền
+  3. score=0.2066 doc_id=haui-library-policy answer=NO | Điều 3. Quy định về sử dụng thẻ thư viện
+TOP3_CONTAINS_ANSWER: NO
+QUESTION_SCORE: 0/2
+
+Q5: Tôi cần làm gì để hoàn tất thủ tục công nợ tại thư viện?
+FILTER: {'audience': 'student'}
+GOLD: Kiểm tra tài khoản hoặc email, trả sách và xử lý vi phạm, kiểm tra lại tài khoản rồi đề nghị cán bộ phòng mượn khóa tài khoản.
+  1. score=0.1476 doc_id=muon-tra-tai-lieu-inhouse answer=NO | Bước 3: Liên hệ cán bộ thư viện, xuất trình thẻ SV để làm thủ tục mượn
+  2. score=0.1293 doc_id=dich-vu-su-dung-phong-hop-nhom answer=NO | # Dịch vụ sử dụng phòng họp nhóm Dịch vụ sử dụng phòng học nhóm
+  3. score=0.1158 doc_id=muon-tra-tai-lieu-inhouse answer=NO | Bước 5: Nhận tài liệu và di chuyển đến khu vực đọc theo nhu cầu. Quy trình trả:
+TOP3_CONTAINS_ANSWER: NO
+QUESTION_SCORE: 0/2
+  A/B WITHOUT FILTER:
+    1. score=0.3079 doc_id=haui-library-policy audience=all
+    2. score=0.2548 doc_id=quy-trinh-lam-the-can-bo audience=faculty
+    3. score=0.2448 doc_id=haui-library-policy audience=all
+
+BENCHMARK_SCORE: 2/10
+
+NOTE: MockEmbedder is deterministic but has no semantic meaning; retrieval scores are illustrative only.

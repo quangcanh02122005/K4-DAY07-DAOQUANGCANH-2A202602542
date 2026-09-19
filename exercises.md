@@ -36,17 +36,17 @@ Chạy `pytest tests/` để kiểm tra tiến độ.
 ### Danh sách cần làm (Checklist)
 - [x] `Document` dataclass — ĐÃ TRIỂN KHAI SẴN
 - [x] `FixedSizeChunker` — ĐÃ TRIỂN KHAI SẴN
-- [ ] `SentenceChunker` — tách dựa trên ranh giới câu, nhóm lại thành các chunks
-- [ ] `RecursiveChunker` — thử nghiệm các dấu phân cách (separators) theo thứ tự, thực hiện đệ quy trên các đoạn có kích thước quá lớn
-- [ ] `compute_similarity` — công thức tính độ tương tự cosine kèm cơ chế bảo vệ chia cho 0
-- [ ] `ChunkingStrategyComparator` — gọi cả ba chiến lược, tính toán các chỉ số thống kê
-- [ ] `EmbeddingStore.__init__` — khởi tạo store (lưu trữ trong bộ nhớ hoặc ChromaDB)
-- [ ] `EmbeddingStore.add_documents` — nhúng (embed) và lưu trữ từng tài liệu
-- [ ] `EmbeddingStore.search` — nhúng truy vấn, xếp hạng theo tích vô hướng (dot product)
-- [ ] `EmbeddingStore.get_collection_size` — trả về số lượng
-- [ ] `EmbeddingStore.search_with_filter` — lọc theo siêu dữ liệu (metadata), sau đó tìm kiếm
-- [ ] `EmbeddingStore.delete_document` — xóa tất cả các chunks của một doc_id
-- [ ] `KnowledgeBaseAgent.answer` — truy xuất (retrieve) + tạo prompt + gọi LLM
+- [x] `SentenceChunker` — tách dựa trên ranh giới câu, nhóm lại thành các chunks
+- [x] `RecursiveChunker` — thử nghiệm các dấu phân cách (separators) theo thứ tự, thực hiện đệ quy trên các đoạn có kích thước quá lớn
+- [x] `compute_similarity` — công thức tính độ tương tự cosine kèm cơ chế bảo vệ chia cho 0
+- [x] `ChunkingStrategyComparator` — gọi cả ba chiến lược, tính toán các chỉ số thống kê
+- [x] `EmbeddingStore.__init__` — khởi tạo store trong bộ nhớ
+- [x] `EmbeddingStore.add_documents` — nhúng (embed) và lưu trữ từng tài liệu
+- [x] `EmbeddingStore.search` — nhúng truy vấn, xếp hạng theo tích vô hướng (dot product)
+- [x] `EmbeddingStore.get_collection_size` — trả về số lượng
+- [x] `EmbeddingStore.search_with_filter` — lọc theo siêu dữ liệu (metadata), sau đó tìm kiếm
+- [x] `EmbeddingStore.delete_document` — xóa tất cả các chunks của một doc_id
+- [x] `KnowledgeBaseAgent.answer` — truy xuất (retrieve) + tạo prompt + gọi LLM
 
 > **Nộp code:** thư mục `src/`
 > **Ghi lại hướng tiếp cận vào:** Báo cáo — Phần 4 (Hướng tiếp cận của tôi)
@@ -77,11 +77,16 @@ Ghi vào bảng:
 
 | # | Tên tài liệu | Nguồn (Source URL) | Ngày lấy / Phiên bản | Số ký tự | Metadata đã gán |
 |---|--------------|------------|--------------------|----------|-----------------|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| 1 | Nội quy Thư viện Đại học Ngoại thương | https://hcmc.ftu.edu.vn/thu-vien/tin-tuc-thu-vien/noi-quy-thu-vien/ | 19/09/2026 / 10/08/2026 | 4.218 | `audience=all`, `category=rules`, `language=vi` |
+| 2 | Nội quy Thư viện Đại học Công nghiệp Hà Nội | https://lib.haui.edu.vn/opac80/ChinhSach.aspx | 19/09/2026 / `not-stated` | 7.832 | `audience=all`, `category=policy`, `language=vi` |
+| 3 | Quy định sử dụng Thư viện HUIT | https://thuvien.huit.edu.vn/Page/quy-dinh-su-dung-thu-vien | 19/09/2026 / `not-stated` | 13.345 | `audience=all`, `category=policy`, `language=vi` |
+| 4 | Mượn trả tài liệu VNUA | https://infolib.vnua.edu.vn/dich-vu/muon-tra-tai-lieu | 19/09/2026 / `not-stated` | 1.457 | `audience=all`, `category=borrowing`, `language=vi` |
+| 5 | Dịch vụ sử dụng phòng họp nhóm HUST | https://library.hust.edu.vn/vi/node/1362 | 19/09/2026 / `not-stated` | 1.717 | `audience=student`, `category=facility`, `language=vi` |
+| 6 | Mượn trả tài liệu đọc tại chỗ HUST | https://library.hust.edu.vn/vi/node/1300 | 19/09/2026 / `not-stated` | 1.761 | `audience=student`, `category=circulation`, `language=vi` |
+| 7 | Quy trình làm thẻ thư viện cho cán bộ HUST | https://library.hust.edu.vn/vi/node/1034 | 19/09/2026 / `not-stated` | 1.298 | `audience=faculty`, `category=service`, `language=vi` |
+| 8 | Quy định làm thẻ bạn đọc HUST | https://library.hust.edu.vn/vi/node/305 | 19/09/2026 / `not-stated` | 1.479 | `audience=student`, `category=service`, `language=vi` |
+| 9 | Thủ tục thanh toán ra trường tại thư viện HUST | https://library.hust.edu.vn/vi/node/61 | 19/09/2026 / `not-stated` | 2.344 | `audience=student`, `category=graduation`, `language=vi` |
+| 10 | Quy định phòng đọc tự chọn HUST | https://library.hust.edu.vn/vi/node/57 | 19/09/2026 / `not-stated` | 2.160 | `audience=all`, `category=facility`, `language=vi` |
 
 **Bước 3 — Thiết kế cấu trúc metadata (metadata schema):** Mỗi tài liệu cần `source_url`, `retrieved_at`, `document_version` và ít nhất 2 trường hữu ích cho việc truy xuất (ví dụ: `audience`, `department`, `category`, `language`, `difficulty`).
 
@@ -114,6 +119,14 @@ class CustomChunker:
 
 **Bước 3 — So sánh:** So sánh chiến lược tùy chỉnh/được tinh chỉnh (custom/tuned strategy) với đường cơ sở (baseline) trên cùng tài liệu.
 
+| Thành viên | Chiến lược | Cấu hình | Số chunk | Điểm benchmark |
+|---|---|---|---:|---:|
+| Đinh Quang Lâm (02875) | Fixed-size | `chunk_size=500`, `overlap=50` | 80 | 1/10 |
+| Đào Quang Cảnh (02542) | Recursive | `chunk_size=500` | 87 | 1/10 |
+| Hoàng Công Minh (02774) | Heading + recursive fallback | `chunk_size=500` | 137 | 2/10 |
+
+Heading chunking đạt điểm cao nhất trong lần chạy bằng `MockEmbedder` vì giữ nguyên mục chứa yêu cầu ảnh làm thẻ và đưa đáp án Q3 lên top-1. Tuy nhiên mock embedding không hiểu ngữ nghĩa, nên kết quả chỉ dùng để minh họa luồng benchmark và tác động của cấu trúc chunk.
+
 > **Ghi kết quả vào:** Báo cáo — Phần 3 (Chiến lược chia nhỏ - Chunking Strategy)
 
 ---
@@ -124,11 +137,11 @@ Mỗi nhóm viết **đúng 5 câu hỏi đánh giá** kèm theo **câu trả l�
 
 | # | Câu hỏi (Query) | Câu trả lời chuẩn (Gold Answer) | Chunk nào chứa thông tin? |
 |---|-------|-------------------------------|--------------------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
+| 1 | Theo HUST, đến nhận phòng học nhóm muộn quá bao lâu thì lịch đặt phòng bị hủy? | Muộn quá 15 phút thì thư viện có quyền hủy lịch và cấp phòng cho nhóm khác. | `dich-vu-su-dung-phong-hop-nhom` — mục “3. Thực hiện” |
+| 2 | Khi mượn tài liệu đọc tại chỗ ở HUST, mỗi lần được lấy tối đa bao nhiêu quyển và phải trả ở đâu, lúc nào? | Tối đa 2 quyển/lần; trả trước 17h30 tại phòng 411. | `muon-tra-tai-lieu-inhouse` — “Quy trình mượn/trả” |
+| 3 | Ảnh làm thẻ thư viện cho cán bộ HUST phải đáp ứng yêu cầu gì? | Ảnh tối thiểu 300 pixel, tỷ lệ 1x1, nền trắng và gửi tới `tttts@hust.edu.vn`. | `quy-trinh-lam-the-can-bo` — mục “2. Thủ tục và địa điểm đăng ký” |
+| 4 | Theo HaUI, sinh viên được mượn tối đa bao nhiêu tài liệu và trong thời gian bao lâu? | Tối đa 5 tài liệu/lần; tài liệu tham khảo 15 ngày, giáo trình một học kỳ. | `haui-library-policy` — Điều 5 |
+| 5 | Tôi cần làm gì để hoàn tất thủ tục công nợ tại thư viện? | Kiểm tra tài khoản/email, trả sách và xử lý vi phạm, kiểm tra lại tài khoản rồi đề nghị khóa tài khoản. | `thu-tuc-thanh-toan-ra-truong`; lọc `audience=student` |
 
 **Yêu cầu:**
 - Câu hỏi phải đa dạng (không hỏi 5 câu có nội dung/cấu trúc giống hệt nhau)
@@ -158,6 +171,14 @@ Gọi hàm `compute_similarity()` trên 5 cặp câu. **Trước khi chạy**, h
 
 **Bước 3:** Thảo luận và rút ra bài học — chuẩn bị cho phần demo (thuyết trình) với các nhóm khác.
 
+| Chiến lược | Q1 | Q2 | Q3 | Q4 | Q5 | Tổng |
+|---|---:|---:|---:|---:|---:|---:|
+| Fixed-size | 0 | 0 | 1 | 0 | 0 | 1/10 |
+| Recursive | 0 | 0 | 1 | 0 | 0 | 1/10 |
+| Heading | 0 | 0 | 2 | 0 | 0 | 2/10 |
+
+**A/B metadata filter:** Với Q5, khi không lọc, top-3 chứa tài liệu `all` và `faculty` không đúng đối tượng. Khi dùng `metadata_filter={"audience": "student"}`, các tài liệu sai đối tượng bị loại trước similarity search; tuy vậy top-3 vẫn chưa chứa đáp án vì `MockEmbedder` không mã hóa ngữ nghĩa.
+
 > **Ghi kết quả vào:** Báo cáo — Phần 6 (Kết quả)
 > **Gợi ý đánh giá:** xem danh sách kiểm tra ngắn trong `README.md` mục **Cách Tự Đánh Giá Kết Quả Retrieval** hoặc chi tiết hơn trong file `docs/EVALUATION.md`.
 
@@ -170,6 +191,12 @@ Tìm ít nhất **1 trường hợp lỗi (failure case)** trong quá trình so 
 - Tại sao? (do chunk quá nhỏ/quá lớn, thiếu metadata, câu hỏi mơ hồ, v.v.)
 - Đề xuất cải thiện?
 
+**Failure case đã quan sát:** Q2 trả đúng `doc_id=muon-tra-tai-lieu-inhouse` ở top-1 nhưng chunk chỉ chứa bước nhận tài liệu, không chứa “tối đa 2 quyển” hay “trả trước 17h30 tại phòng 411”. Nếu chỉ chấm theo `doc_id`, kết quả sẽ bị đánh giá sai là thành công.
+
+**Nguyên nhân:** HeadingChunker tách từng `Bước` thành chunk riêng, trong khi gold answer cần thông tin từ cả quy trình mượn và trả; mock embedding cũng không ưu tiên được chunk chứa số liệu.
+
+**Cải thiện:** Gom các bước thuộc cùng quy trình vào một section, thêm overlap hoặc parent heading, dùng embedding đa ngôn ngữ thật và bổ sung keyword/BM25 cho con số, thời gian và số phòng.
+
 > **Ghi kết quả vào:** Báo cáo — Phần 7 (Những gì tôi học được)
 > **Gợi ý:** phân tích lỗi nên tham chiếu từ các góc nhìn như độ chính xác (precision), tính mạch lạc của chunk (chunk coherence), tính hữu dụng của metadata, và chất lượng thông tin nền (grounding quality).
 
@@ -177,7 +204,7 @@ Tìm ít nhất **1 trường hợp lỗi (failure case)** trong quá trình so 
 
 ## Danh Sách Kiểm Tra Nộp Bài (Submission Checklist)
 
-- [ ] Vượt qua tất cả các bài kiểm thử (tests): `pytest tests/ -v`
-- [ ] Cập nhật thư mục `src/` (cá nhân)
-- [ ] Hoàn thành báo cáo nhóm (`report/REPORT_NHOM.md` — 1 file/nhóm)
-- [ ] Hoàn thành báo cáo cá nhân (`report/REPORT_CANHAN.md` — 1 file/sinh viên)
+- [x] Vượt qua tất cả các bài kiểm thử (tests): `pytest tests/ -v` — 42/42 passed
+- [x] Cập nhật thư mục `src/` (cá nhân)
+- [x] Hoàn thành báo cáo nhóm (`report/REPORT_NHOM.md` — 1 file/nhóm)
+- [x] Hoàn thành báo cáo cá nhân (`report/REPORT_CANHAN.md` — 1 file/sinh viên)
